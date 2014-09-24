@@ -24,10 +24,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 #  config.vm.network :forwarded_port, guest: 9999, host: 9999
   config.vm.network "private_network", ip: "192.168.50.4"
 
-  config.vm.provision "ansible" do |ansible|
+  config.vm.provision "shell", path: "provision.sh"
+  
+  #config.vm.provision "ansible" do |ansible|
     #ansible.verbose = "vvvv"
-    #ansible.tags=["load_apps"]
-    ansible.playbook = "provisioning/smart-on-fhir-servers.yml"
-  end
+    #ansible.tags=["reset_db","load_patients"]
+    #ansible.playbook = "provisioning/smart-on-fhir-servers.yml"
+  #end
 
 end
