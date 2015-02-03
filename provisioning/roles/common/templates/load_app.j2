@@ -12,9 +12,7 @@
 {% else %}
   "redirectUris": [
      "{{app_server_base}}/{{item.redirect_uri}}"
-     {% if app_server_on_80 %}
-     , "http://{{app_server_host}}/{{item.redirect_uri}}"
-     {% endif %}
+     , "http://fhir-insecure.smartplatforms.org/{{item.redirect_uri}}"
   ],
 {% endif %}
   "scope": [
